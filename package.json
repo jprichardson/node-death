@@ -1,0 +1,24 @@
+{
+    "name" : "death", 
+    "version" : "0.0.1",
+    "description" :"Gracefully cleanup when termination signals are sent to your process.",
+    "homepage" : [
+       ""
+    ],
+    "repository" : {
+        "type" : "git", 
+        "url" : "git@github.com:jprichardson/node-death.git"
+    },
+    "keywords" : ["sigint", "sigterm", "sigkill", "sigquit", "exception", "kill", "terminate", "process", "clean"],
+    "author" : "JP Richardson <jprichardson@gmail.com>",
+    "licenses" : [ {
+        "type" : "MIT",
+        "url" : ""
+    }],
+    "dependencies" : {},
+     "devDependencies":{},
+    "main" : "./lib/death.js",
+    "scripts": {
+        "test": "mocha test"
+    }
+}
