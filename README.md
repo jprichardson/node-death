@@ -1,7 +1,7 @@
 Node.js - death
 ================
 
-Conveniently cleanup when termination signals are sent to your process.
+Gracefully cleanup when termination signals are sent to your process.
 
 
 Why?
@@ -47,6 +47,9 @@ By default, it sets the callback on `uncaughtException`, `SIGINT`, `SIGQUIT`, an
 - **SIGTERM**: Sent from operating system `kill`.
 
 More discussion and detail: http://www.gnu.org/software/libc/manual/html_node/Termination-Signals.html and http://pubs.opengroup.org/onlinepubs/009695399/basedefs/signal.h.html and http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap11.html.
+
+AS they pertain to Node.js: http://dailyjs.com/2012/03/15/unix-node-signals/
+
 
 #### Don't want to catch uncaughtException?
 
