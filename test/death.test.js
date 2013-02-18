@@ -1,4 +1,4 @@
-var spawn = require('child_process').spawn //require('win-spawn')
+var spawn = require('win-spawn')
   , P = require('autoresolve')
   , testutil = require('testutil')
   , colors = require('colors')
@@ -69,6 +69,40 @@ describe('death', function() {
         process.kill(prog.pid, 'SIGTERM')
         prog.kill('SIGQUIT')
         prog.kill('SIGHUP')
+      }, 100)
+      
+    })
+  })
+
+  describe('disable signal', function() {
+    it('should catch SIGINT and SIGTERM', function(done) {
+      var signals = []
+      var progPath = P('test/resources/disable')
+      var prog = spawn(progPath, [])
+      //console.dir(prog)
+
+      prog.stdout.on('data', function(data) {
+        //console.log(colors.cyan(data.toString()))
+      })
+
+      prog.stderr.on('data', function(data) {
+        //console.error(colors.red(data.toString()))
+        signals = signals.concat(data.toString().trim().split('\n'))
+      })
+
+      prog.on('exit', function(code) {
+        T (signals.indexOf('SIGQUIT') < 0)
+        T (signals.indexOf('SIGTERM') >= 0)
+        T (signals.indexOf('SIGINT') >= 0)
+        done()
+      })
+
+      setTimeout(function() {
+        prog.kill('SIGINT')
+        prog.kill('SIGTERM')
+        setTimeout(function() {
+          prog.kill('SIGQUIT') //this actually kills it since we disabled it
+        },10)
       }, 100)
       
     })
