@@ -51,12 +51,12 @@ More discussion and detail: http://www.gnu.org/software/libc/manual/html_node/Te
 AS they pertain to Node.js: http://dailyjs.com/2012/03/15/unix-node-signals/
 
 
-#### Don't want to catch uncaughtException?
+#### Want to catch uncaughtException?
 
 No problem, do this:
 
 ```js
-var ON_DEATH = require('death')({uncaughtException: false}) //could also use alias: 'uncaught', 'ue', or 'exception'.
+var ON_DEATH = require('death')({uncaughtException: true}) 
 ```
 
 #### Want to know which signals are being caught?
