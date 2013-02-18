@@ -38,6 +38,42 @@ describe('death', function() {
     })
   })
 
+  describe('other signal', function() {
+    it('should catch SIGINT, SIGTERM, SIGQUIT, and SIGHUP and return 4', function(done) {
+      var signals = []
+      var progPath = P('test/resources/sighup')
+      var prog = spawn(progPath, [])
+      //console.dir(prog)
+
+      prog.stdout.on('data', function(data) {
+        //console.log(colors.cyan(data.toString()))
+      })
+
+      prog.stderr.on('data', function(data) {
+        //console.error(colors.red(data.toString()))
+        signals = signals.concat(data.toString().trim().split('\n'))
+      })
+
+      prog.on('exit', function(code) {
+        EQ (code, 4)
+        //console.dir(signals)
+        T (signals.indexOf('SIGQUIT') >= 0)
+        T (signals.indexOf('SIGTERM') >= 0)
+        T (signals.indexOf('SIGINT') >= 0)
+        T (signals.indexOf('SIGHUP') >= 0)
+        done()
+      })
+
+      setTimeout(function() {
+        prog.kill('SIGINT')
+        process.kill(prog.pid, 'SIGTERM')
+        prog.kill('SIGQUIT')
+        prog.kill('SIGHUP')
+      }, 100)
+      
+    })
+  })
+
   describe('uncaughException', function() {
     describe('> when set to true', function() {
       it('should catch uncaughtException', function(done) {
