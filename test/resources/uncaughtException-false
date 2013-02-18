@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
 var P = require('autoresolve')
-  , ON_DEATH = require(P('lib/death'))({uncaughtException: true})
+  , ON_DEATH = require(P('lib/death'))({uncaughtException: false})
 
 var ret = 0x0
 console.log('HI FROM PROGRAM')
 
 ON_DEATH(function(signal, err) {
-  console.error(signal)
+  console.error('CAUGHT: ' + signal)
   console.error(err.message)
   process.exit(70)
 })
