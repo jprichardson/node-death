@@ -30,8 +30,8 @@ Example
 ```js
 var ON_DEATH = require('death'); //this is intentionally ugly
 
-ON_DEATH(function(err) {
-  //clean up code here  
+ON_DEATH(function(signal, err) {
+  //clean up code here
 })
 ```
 
