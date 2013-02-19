@@ -39,7 +39,7 @@ ON_DEATH(function(err) {
 Usage
 -----
 
-By default, it sets the callback on `uncaughtException`, `SIGINT`, `SIGQUIT`, and `SIGTERM`.
+By default, it sets the callback on `SIGINT`, `SIGQUIT`, and `SIGTERM`.
 
 ### Signals
 - **SIGINT**: Sent from CTRL-C
