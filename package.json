@@ -1,6 +1,6 @@
 {
   "name": "death",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Gracefully cleanup when termination signals are sent to your process.",
   "repository": {
     "type": "git",

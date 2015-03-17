@@ -1,3 +1,8 @@
+1.0.0 / 2015-03-17
+------------------
+- removed `homepage` field in `package.json`
+- small formatting changes
+
 0.1.0 / 2013-02-18
 ------------------
 * Fixed bugs due to setting of `uncaughtException`. Closes #1
