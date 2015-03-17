@@ -34,7 +34,7 @@ describe('death', function() {
         process.kill(prog.pid, 'SIGTERM')
         prog.kill('SIGQUIT')
       }, 100)
-      
+
     })
   })
 
@@ -70,7 +70,7 @@ describe('death', function() {
         prog.kill('SIGQUIT')
         prog.kill('SIGHUP')
       }, 100)
-      
+
     })
   })
 
@@ -104,7 +104,7 @@ describe('death', function() {
           prog.kill('SIGQUIT') //this actually kills it since we disabled it
         },10)
       }, 100)
-      
+
     })
   })
 
