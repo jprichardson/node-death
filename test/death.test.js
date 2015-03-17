@@ -1,7 +1,9 @@
 var spawn = require('win-spawn')
-  , P = require('autoresolve')
-  , testutil = require('testutil')
-  , colors = require('colors')
+var P = require('autoresolve')
+var testutil = require('testutil')
+var colors = require('colors')
+
+/* global describe, it, T, EQ */
 
 describe('death', function() {
   describe('default behavior', function() {
