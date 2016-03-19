@@ -85,6 +85,20 @@ var ON_DEATH = require('death')({SIGHUP: true})
 Name it whatever you want. I like `ON_DEATH` because it stands out like a sore thumb in my code.
 
 
+#### Want to remove event handlers?
+
+If you want to remove event handlers `ON_DEATH` returns a function for cleaning
+up after itself:
+
+```js
+var ON_DEATH = require('death')
+var OFF_DEATH = ON_DEATH(function(signal, err) {
+  //clean up code here
+})
+
+// later on...
+OFF_DEATH();
+```
 
 License
 -------
