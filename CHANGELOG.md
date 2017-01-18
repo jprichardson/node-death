@@ -1,3 +1,7 @@
+1.1.0 / 2017-01-18
+------------------
+- ability to remove listeners
+
 1.0.0 / 2015-03-17
 ------------------
 - removed `homepage` field in `package.json`
